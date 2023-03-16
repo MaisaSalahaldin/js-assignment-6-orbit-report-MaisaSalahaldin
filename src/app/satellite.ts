@@ -1,3 +1,5 @@
+import { ReturnStatement } from "@angular/compiler";
+
 export class Satellite {
 
 	name: string;
@@ -13,9 +15,18 @@ export class Satellite {
 		this.orbitType = orbitType;
 		this.operational = operational;
    }
-	
+   zebraStripes(array):boolean{
+if(array.indexOf(this) % 2 === 0 && this.type.toLowerCase() !== 'space debris'){
+	return true
+}
+else 
+return false;
+   }
 	isSpaceDebris(): boolean {
+		if(this.type.toLowerCase()==='space debris')
 		return true;
+		else
+		return false
    }
 
 }

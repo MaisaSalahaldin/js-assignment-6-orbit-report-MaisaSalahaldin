@@ -6,12 +6,18 @@
         <th>Orbit Type</th>
         <th>Launch Date</th>
     </tr>
-    <tr class="data-row">
-        <td>GPS 938</td>
-        <td>Positioning</td>
-        <td>true</td>
-        <td>HIGH</td>
-        <td>2001-11-01</td>
+    <tr  *ngFor="let s of satellites" [class.zebraStripes]="s.zebraStripes(satellites)" class="data-row">
+        
+            <td>{{s.name}}</td>
+            <td [class.warning]="s.isSpaceDebris()">{{s.type}}</td>
+            
+            <td>{{s.operational}}</td>
+
+          
+            <td>{{s.orbitType}}</td>
+            <td>{{s.launchDate}}</td>
+        
+        
     </tr>
 </table>
 
